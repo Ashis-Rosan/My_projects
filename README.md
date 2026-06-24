@@ -1,11 +1,11 @@
-# Airline Customers Satisfactions SQL Project
+# Airline Passengers Satisfactions SQL Project
 
 ## Project Overview
 
 **Project Title**: Airline Customers Satisfactions.
 
-Airline Customer Satisfaction Analysis
-This project demonstrates my SQL skills in exploring and analyzing real-world airline customer feedback data.
+Airline Passengers Satisfaction Analysis
+This project demonstrates my SQL skills in exploring and analyzing real-world airline Passengers feedback data.
 I cleaned the dataset, performed Exploratory Data Analysis (EDA), and answered key business questions using SQL.
 This project helped me strengthen my practical data analysis skills and build a solid foundation in SQL.
 
@@ -58,7 +58,7 @@ Satisfaction         varchar(35)
 ### 2. Data Exploration & Cleaning:-
 
 - **Data Count:** Count how many rows (records) are in the dataset. This tells you the total number of entries.  
-- **Customer Count:** Count how many different customers are in the dataset. This shows the number of unique customers.  
+- **Customer Count:** Count how many different Passengers are in the dataset. This shows the number of unique Passengers.  
 - **Category Count:** Find all the different categories (for example, seat class or service type) in the dataset and count them. This tells you how many distinct categories exist.  
 - **Null Value Check:** Look for blank or missing values in the data. If a row has missing important information, delete that row so the dataset is clean and accurate.
 
@@ -66,7 +66,7 @@ Satisfaction         varchar(35)
   Data count:
   SELECT COUNT(*) FROM Airline_details;
 
-  How many different customers :
+  How many different Passengers :
   SELECT COUNT(DISTINCT Id) FROM Airline_details;
 
   Customers types:
@@ -160,7 +160,7 @@ SELECT
     Customer_Type,
     Satisfaction,
     COUNT(*) AS Total
-FROM airline_data
+FROM airline_details
 GROUP BY Customer_Type, Satisfaction;
 ```
 **Returning customers are more satisfied than first-time customers.**
@@ -181,16 +181,17 @@ GROUP BY Type_of_Travel, Satisfaction;
 SELECT
     Satisfaction,
     AVG(Food_and_Drink) AS Avg_Food_Rating
-FROM airline_data
+FROM airline_details
 GROUP BY Satisfaction;
 ```
-**Food quality directly impacts passenger experience.**
+**Food quality directly impacts passenger experience.**    
+
 8. Which Customer Segment Travels the Longest Distance?
 ```SQL
 SELECT
     Type_of_Travel,
     AVG(Flight_Distance) AS Avg_Distance
-FROM airline_data
+FROM airline_details
 GROUP BY Type_of_Travel;
 ```
 **People who travel for business usually fly longer distances compared to people who travel for personal reasons**
@@ -200,21 +201,22 @@ GROUP BY Type_of_Travel;
 SELECT
     Class,
     AVG(Seat_Comfort) AS Avg_Comfort
-FROM airline_data
+FROM airline_details
 GROUP BY Class
 ORDER BY Avg_Comfort DESC;
 ```
-Business Class is the most comfortable seating option on a flight.
+**Business Class is the most comfortable seating option on a flight.**
 
-14. Which gender has higher satisfaction?
+10. Which gender has higher satisfaction?
 ```SQL
 SELECT
     Gender,
     Satisfaction,
     COUNT(*) AS Total
-FROM airline_data
+FROM airline_details
 GROUP BY Gender, Satisfaction;
 ```
+**Male passengers have a slightly higher satisfaction rate (44.01%) than female passengers (42.90%).**
 ## Conclusion
 
 This analysis helped identify the main factors that affect airline customer satisfaction.
